@@ -1,0 +1,40 @@
+baseurl = "http://www.meetpasser.cc"
+title = "Meet Stranger"
+languageCode = "zh-cn"
+paginate = "20" # Number of posts per page
+theme = "mainroad"
+disqusShortname = "" # Enable comments by entering your Disqus shortname
+googleAnalytics = "" # Enable Google Analytics by entering your tracking id
+disableKinds=["RSS"]
+
+[Author]
+    name = "Passer"
+    bio = "I'm a programmer now."
+    avatar = "img/avatar.png"
+
+
+[Params]
+    subtitle = "some thing to say" # Subtitle of your site
+    description = " Passer's Personal blog about everything" # Description of your site
+    opengraph = true
+    readmore = false # Show "Read more" button in list if true
+    leftsidebar = false # Move sidebar to the left side if true
+    authorbox = true
+    post_navigation = true
+    postSections = ["post"]
+
+
+[Params.widgets]
+    search = true # Enable "Search" widget
+    recent_articles = true # Enable "Recent arcticles" widget
+    categories = true # Enable "Categories" widget
+    tags = true # Enable "Tags" widget
+    tags_counter = false # Enable counter for each tag in "Tags" widget (disabled by default)
+
+    social_github = "shanccc"
+
+[[menu.main]]
+    name = "MAIN"
+    weight = -110
+    identifier = "main"
+    url = "/"
