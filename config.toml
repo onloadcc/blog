@@ -9,12 +9,12 @@ disableKinds=["RSS"]
 
 [Author]
     name = "Passer"
-    bio = "I'm a programmer now."
+    bio = "Empty"
     avatar = "img/avatar.png"
 
 
 [Params]
-    subtitle = "some thing to say" # Subtitle of your site
+    subtitle = "record something" # Subtitle of your site
     description = " Passer's Personal blog about everything" # Description of your site
     opengraph = true
     readmore = false # Show "Read more" button in list if true

@@ -2,7 +2,7 @@
 title = "Hugo 使用笔记"
 description = "Hugo 使用过程中记录，不定期更新"
 date = "2017-09-13"
-categories = ["tools"]
+categories = ["Tools"]
 tags = ["hugo","go","blog"]
 thumbnail = "img/hugo-logo.png"
 +++
