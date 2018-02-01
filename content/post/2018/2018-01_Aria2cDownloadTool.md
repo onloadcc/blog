@@ -16,6 +16,7 @@ Aria2c是一个支持Http,fpt和magent下载的多平台工具。
 
 ### Mac使用
 [Aria2GUI](https://github.com/yangshun1029/aria2gui/releases)直接下载即可使用。
+[Persepolis Download Manager--全平台界面](https://github.com/persepolisdm/persepolis/releases)  
 
 ### Windows下使用
 
