@@ -156,10 +156,11 @@ sudo ./shutdown.sh
 
 
 ```
-###添加自动启动　　无效？
+###添加自动启动　　
 vim /etc/rc.d/rc.local
 
-./usr/local/tomcat/bin/startup.sh
+export JAVA_HOME=/usr/local/jdk1.8.0_161　###必须加
+/usr/local/tomcat/bin/startup.sh start
 ```
 
 
