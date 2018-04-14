@@ -1,9 +1,9 @@
 baseurl = "http://www.meetpasser.cc"
-title = "Meet Stranger"
+title = "MeetPasser"
 languageCode = "zh-cn"
 paginate = "20" # Number of posts per page
 theme = "mainroad"
-disqusShortname = "" # Enable comments by entering your Disqus shortname
+disqusShortname = "passerzhang" # Enable comments by entering your Disqus shortname
 googleAnalytics = "" # Enable Google Analytics by entering your tracking id
 disableKinds=["RSS"]
 
@@ -27,11 +27,12 @@ disableKinds=["RSS"]
 [Params.widgets]
     search = true # Enable "Search" widget
     recent_articles = true # Enable "Recent arcticles" widget
+    recent_articles_num = 5 # Set the number of articles in the "Recent articles" widget
     categories = true # Enable "Categories" widget
     tags = true # Enable "Tags" widget
     tags_counter = false # Enable counter for each tag in "Tags" widget (disabled by default)
 
-    social_github = "shanccc"
+    social_github = "onloadcc"
 
 [[menu.main]]
     name = "MAIN"

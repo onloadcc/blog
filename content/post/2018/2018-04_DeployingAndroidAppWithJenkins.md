@@ -142,6 +142,8 @@ sdkmanager "platforms;android-25"
 ```
 ###本地有就直接拷了
 scp /Users/hello/Downloads/apache-tomcat-8.5.30.tar.gz  root@192.168.0.106:/home
+###或下载
+wget http://www-us.apache.org/dist/tomcat/tomcat-8/v8.5.30/bin/apache-tomcat-8.5.30.tar.gz
 ```
 
 

@@ -72,3 +72,5 @@ hugo
 [Hugo中文文档](http://www.gohugo.org/)   
 [配置 Hugo-- config.tomal参数介绍](http://www.gohugo.org/doc/overview/configuration/)    
 [文章格式化支持--Supported Content Formats](https://gohugo.io/content-management/formats/)  
+[ 使用github创建个人主页及项目主页](https://blog.csdn.net/wangjianno2/article/details/78061662)  
+[Hugo静态网站生成器中文教程](http://nanshu.wang/post/2015-01-31/)  
