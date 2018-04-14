@@ -3,7 +3,7 @@ title = "MeetPasser"
 languageCode = "zh-cn"
 paginate = "20" # Number of posts per page
 theme = "mainroad"
-disqusShortname = "passerzhang" # Enable comments by entering your Disqus shortname
+disqusShortname = "" # Enable comments by entering your Disqus shortname
 googleAnalytics = "" # Enable Google Analytics by entering your tracking id
 disableKinds=["RSS"]
 
@@ -31,7 +31,6 @@ disableKinds=["RSS"]
     categories = true # Enable "Categories" widget
     tags = true # Enable "Tags" widget
     tags_counter = false # Enable counter for each tag in "Tags" widget (disabled by default)
-
     social_github = "onloadcc"
 
 [[menu.main]]
