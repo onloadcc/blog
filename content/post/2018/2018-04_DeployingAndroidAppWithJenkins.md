@@ -133,7 +133,14 @@ sdkmanager "platforms;android-25"
 #### 4.Git安装
 
 [起步 - 安装 Git](https://git-scm.com/book/zh/v1/%E8%B5%B7%E6%AD%A5-%E5%AE%89%E8%A3%85-Git)  
+#### 5.Groovy安装。默认不安装也可以
+[下载](http://groovy-lang.org/download.html)后拷贝至指定目录，配置环境变量。
 
+```
+GROOVY_HOME=/Users/hello/Applications/groovy-2.4.15
+export GROOVY_HOME
+export PATH=$GROOVY_HOME/bin:$PATH
+```
 
 ### 二  环境搭建
 
@@ -275,6 +282,45 @@ mv jenkins.war  /usr/local/tomcat/webapps/
 <p></p>
 
 
+构建后执行脚本插件[PostBuildScript Plugin](https://wiki.jenkins.io/display/JENKINS/PostBuildScript+Plugin),可执行shell,groovy,gradle等脚本。
+
+
+### ？待解决
+
+Q:　jenkins执行groovy脚本时权限处理？如何直接执行不需要批准？　
+
+A:　暂时解决方案：把groovy脚本放在单独路径，不放在git管理库中。任务填写时不勾选`Run in Groovy Sandbox`，第一次执行时批准一次，后续会默认执行。
+
+
+默认执行时会报错，使用的有读写文件的api。
+```
+[PostBuildScript] - Executing post build scripts.
+[PostBuildScript] - Problem occurred: org.jenkinsci.plugins.scriptsecurity.scripts.UnapprovedUsageException: script not yet approved for use
+	at org.jenkinsci.plugins.scriptsecurity.scripts.ScriptApproval.using(ScriptApproval.java:466)
+	at org.jenkinsci.plugins.scriptsecurity.sandbox.groovy.SecureGroovyScript.evaluate(SecureGroovyScript.java:343)
+	at org.jenkinsci.plugins.postbuildscript.service.GroovyScriptExecutor.execute(GroovyScriptExecutor.java:49)
+	at org.jenkinsci.plugins.postbuildscript.service.GroovyScriptPreparer.evaluateScript(GroovyScriptPreparer.java:55)
+	at org.jenkinsci.plugins.postbuildscript.service.GroovyScriptPreparer.evaluateCommand(GroovyScriptPreparer.java:86)
+	at org.jenkinsci.plugins.postbuildscript.processor.Processor.processScriptFiles(Processor.java:139)
+	at org.jenkinsci.plugins.postbuildscript.processor.Processor.processScripts(Processor.java:93)
+	at org.jenkinsci.plugins.postbuildscript.processor.Processor.process(Processor.java:83)
+	at org.jenkinsci.plugins.postbuildscript.processor.Processor.process(Processor.java:77)
+	at org.jenkinsci.plugins.postbuildscript.PostBuildScript.perform(PostBuildScript.java:114)
+	at hudson.tasks.BuildStepMonitor$1.perform(BuildStepMonitor.java:20)
+	at hudson.model.AbstractBuild$AbstractBuildExecution.perform(AbstractBuild.java:744)
+	at hudson.model.AbstractBuild$AbstractBuildExecution.performAllBuildSteps(AbstractBuild.java:690)
+	at hudson.model.Build$BuildExecution.post2(Build.java:186)
+	at hudson.model.AbstractBuild$AbstractBuildExecution.post(AbstractBuild.java:635)
+	at hudson.model.Run.execute(Run.java:1752)
+	at hudson.model.FreeStyleBuild.run(FreeStyleBuild.java:43)
+	at hudson.model.ResourceController.execute(ResourceController.java:97)
+	at hudson.model.Executor.run(Executor.java:429)
+
+Build step 'Execute Scripts' changed build result to FAILURE
+Build step 'Execute Scripts' marked build as failure
+```
+
+
 ### 参考
 
 [Android Jenkins+Git+Gradle 持续集成 ](https://juejin.im/entry/585a6b6bb123db006597195a)  
@@ -288,6 +334,7 @@ mv jenkins.war  /usr/local/tomcat/webapps/
 [jenkins中的环境变量](https://my.oschina.net/donhui/blog/530715)  
 [Jenkins Plugin 获取变量的问题。](https://testerhome.com/topics/8311)  
 [Jenkins学习（四）job界面详解](https://blog.csdn.net/taishanduba/article/details/61423121)  
+[Jenkins 进程内脚本批准--执行Groovy脚本权限处理](https://www.w3cschool.cn/jenkins/jenkins-85xp28mk.html)  
 
 
 
