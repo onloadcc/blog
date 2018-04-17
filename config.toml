@@ -1,4 +1,4 @@
-baseurl = "http://www.meetpasser.cc"
+baseurl = "http://meetpasser.cc"
 title = "MeetPasser"
 languageCode = "zh-cn"
 paginate = "20" # Number of posts per page
