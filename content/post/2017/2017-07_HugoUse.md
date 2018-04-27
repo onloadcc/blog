@@ -57,6 +57,13 @@ hugo
 
 生成之后在`hello`下生成`pulic`目录，全部上传至网站即可。
 
+### 添加robots.txt文件
+
+
+1.在`config.toml`中添加`enableRobotsTXT=true`。  
+2.`static`目录下添加`robots.txt`文件，并编辑不需要抓取的网址。  
+3.重新生成网站即可生成`robots.txt`文件。  
+
 
 ### 文章编写
 
