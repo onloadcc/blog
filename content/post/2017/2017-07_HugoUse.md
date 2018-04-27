@@ -61,7 +61,7 @@ hugo
 
 
 1.在`config.toml`中添加`enableRobotsTXT=true`。  
-2.`static`目录下添加`robots.txt`文件，并编辑不需要抓取的网址。  
+2.`layouts`目录下添加`robots.txt`文件，并编辑不需要抓取的网址（如果没有此文件夹，在根目录创建即可）。  
 3.重新生成网站即可生成`robots.txt`文件。  
 
 
