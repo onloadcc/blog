@@ -11,6 +11,11 @@ thumbnail = ""
 
 <!--more-->
 
+### 首先到系统设置中设置好Git提交时显示的userName和email，再创建个项目开始操作。
+
+ {{< figure src="/img/jenkins/jenkins_setting_git_email.png" alt="add file shell" width="700px" height="300px">}}
+
+<p></p>	
 
 ### 1. 新建一个项目，源码管理中选择Git，并配置好源码库信息。
 
