@@ -284,6 +284,9 @@ mv jenkins.war  /usr/local/tomcat/webapps/
 
 构建后执行脚本插件[PostBuildScript Plugin](https://wiki.jenkins.io/display/JENKINS/PostBuildScript+Plugin),可执行shell,groovy,gradle等脚本。
 
+项目之间传递参数插件[Parameterized Trigger Plugin](https://wiki.jenkins.io/display/JENKINS/Parameterized+Trigger+Plugin)  
+可在项目构建完成后启动其它项目时传递参数过去。
+  
 
 ### ？待解决
 
