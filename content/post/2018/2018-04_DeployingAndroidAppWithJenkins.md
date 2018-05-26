@@ -13,7 +13,12 @@ thumbnail = ""
 
 <!--more-->
 
-### 环境检查下
+### 环境检查
+
+服务器配置建议：  
+首先选国外的，你懂的。  
+内存4G以上。默认2G会提示`Gradle build daemon disappeared unexpectedly (it may have been killed or may have crashed)`错误，由内存不足引起。  
+
 
 ```
 ### 操作系统版本
@@ -41,7 +46,7 @@ cat /proc/meminfo
 
 ##### 1.JDK安装
 
-系统自带的jdk功能少，例如`javac`命令就没有，删除后重新安装。
+系统自带的jdk功能少，例如`javac`命令就没有，删除后重新安装。[JavaSDK地址](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)。
 
 
 ```
@@ -60,9 +65,9 @@ vim ~/.bash_profile
 
 JAVA_HOME=/usr/local/jdk1.8.0_161
 export JAVA_HOME
+export JRE_HOME=$JAVA_HOME/jre
+export CLASSPATH=$JAVA_HOME/lib:$JRE_HOME/lib
 export PATH=$JAVA_HOME/bin:$PATH
-CLASSPATH=$JAVA_HOME/lib:$JAVA_HOME/jre/lib
-export PATH=$CLASSPATH:$JAVA_HOME/jre/bin
 
 source ~/.bash_profile 
 
@@ -72,7 +77,7 @@ java -version
 
 ##### 2.Gradle安装
 
-Gradle和AndroidSDK都说用自己电脑的，就不用下载啦，直接拷贝使用。注意拷贝项目使用的Gradle版本。又拷贝了一次和下面的截图不一致。
+Gradle和AndroidSDK都说用自己电脑的，就不用下载啦，直接拷贝使用。注意拷贝项目使用的Gradle版本。又拷贝了一次和下面的截图不一致。[Gradle各个版本地址](https://gradle.org/releases/)。
 
 ```
 ## copy file
@@ -90,13 +95,17 @@ export PATH=$GRADLE_HOME/bin:$PATH
 
 source ~/.bash_profile 
 
+## 禁用daemon进程
+vim ~/.gradle/gradle.properties ##添加文件
+org.gradle.daemon=false  ##添加内容
+
 ## test
 gradle -v
 ```
 
 #### 3.AndroidSDK配置
 
-到官网下载Linux版本的SDK。
+到官网下载[Linux版本的SDK](https://developer.android.com/studio/#downloads)。
 
 ```
 ###Linux版本SDK下载
@@ -153,6 +162,11 @@ scp /Users/hello/Downloads/apache-tomcat-8.5.30.tar.gz  root@192.168.0.106:/home
 wget http://www-us.apache.org/dist/tomcat/tomcat-8/v8.5.30/bin/apache-tomcat-8.5.30.tar.gz
 ```
 
+```
+### 端口更改为80
+vim /usr/local/tomcat/conf/server.xml
+将Connector port="8080"改为"80"即可。
+```
 
 ```
 ###启动
@@ -168,6 +182,9 @@ vim /etc/rc.d/rc.local
 
 export JAVA_HOME=/usr/local/jdk1.8.0_161　###必须加
 /usr/local/tomcat/bin/startup.sh start
+
+### 添加运行权限
+chmod +x /etc/rc.d/rc.local
 ```
 
 
@@ -180,7 +197,7 @@ wget http://mirrors.jenkins.io/war-stable/latest/jenkins.war
 mv jenkins.war  /usr/local/tomcat/webapps/
 ```
 
-启动Tomcat服务器，访问`http://localhost:8080`进行安装配置。
+启动Tomcat服务器，访问`http://localhost/jenkins`进行安装配置。
 
 ###### 1. 输入密码
 
@@ -248,7 +265,7 @@ mv jenkins.war  /usr/local/tomcat/webapps/
 
 <p></p>
 
-在这里使用第三方插件(Env Injector)进行动态注入变量：读取本地的Properties文件，将变量注入到系统变量中，可在后面直接使用
+在这里使用第三方插件(Environment Injector)进行动态注入变量：读取本地的Properties文件，将变量注入到系统变量中，可在后面直接使用
 
  {{< figure src="/img/jenkins/jenkins_task_4_2.png" alt="task 1" width="600px" height="800px">}}
 

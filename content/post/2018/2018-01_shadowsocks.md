@@ -41,6 +41,14 @@ thumbnail = ""
 
 	sudo /usr/local/bin/ssserver -c /etc/shadowsocks/config.json -d start
 
+#### 常用命令
+
+    ssserver -c /etc/shadowsocks.json ##前台运行
+    ssserver -c /etc/shadowsocks.json -d start  ##后台运行
+    ssserver -c /etc/shadowsocks.json -d stop  ##停止后台运行
+    tail -f -n 100 /var/log/shadowsocks.log  ##查看运行日志
+
+
 ### 添加开机启动
 
 编辑`sudo vim /etc/rc.local`文件，最后添加`sudo /usr/local/bin/ssserver -c /etc/shadowsocks/config.json -d start`即可。
